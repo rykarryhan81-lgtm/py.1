@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Watch</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            font-family: Arial, sans-serif;
+        }
+
+        .watch {
+            color: #00ff99;
+            font-size: 60px;
+            font-weight: bold;
+            padding: 20px 40px;
+            border: 3px solid #00ff99;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ff99;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="watch" id="clock">00:00:00</div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+
+            let hours = String(now.getHours()).padStart(2, '0');
+            let minutes = String(now.getMinutes()).padStart(2, '0');
+            let seconds = String(now.getSeconds()).padStart(2, '0');
+
+            document.getElementById("clock").innerHTML =
+                `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html>
